@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCalculatorApp
 {
-    public class Calculator
+    internal class Calculator
     {
         public int Add(int x, int y)
         {
