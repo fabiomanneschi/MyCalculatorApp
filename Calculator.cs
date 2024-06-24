@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyCalculatorApp
 {
-    internal class Calculator
+    public class Calculator
     {
+
         public int Add(int x, int y)
         {
+            Thread.Sleep(2000);
             return x + y;
         }
 
@@ -23,9 +26,21 @@ namespace MyCalculatorApp
             return x * y;
         }
 
-        public int Divide(int x, int y)
+        //public int Divide(int x, int y)
+        //{
+        //    return x / y;
+        //}
+        public int? Divide(int x, int y)
         {
-            return x / y;
+            try
+            {
+                return x / y;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot divide by zero.");
+                return null;
+            }
         }
     }
 }
